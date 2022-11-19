@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 app.get('/',(req,res)=>{
-    throw new Error('oops')
+    res.json({message:"hello"})
 })
 
 app.use("/api", protect,router);

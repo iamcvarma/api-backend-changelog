@@ -1,8 +1,8 @@
-import app from './server';
-import * as dotenv from 'dotenv'
-dotenv.config()
+import app from "./server";
+import * as dotenv from "dotenv";
+import config from "./config";
+dotenv.config();
 
-app.listen(8000,()=>{
-    console.log("app listening to port 8000...");
-    
-})
+app.listen(config.port, () => {
+  console.log(`app listening to port ${config.port}...`);
+});

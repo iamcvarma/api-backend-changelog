@@ -2,6 +2,7 @@ import express from "express";
 import router from "./router";
 import morgan from 'morgan'
 import cors from 'cors'
+import routes from './routesData'
 import { protect } from "./modules/auth";
 import { createNewUser, singIn } from "./handlers/user";
 const app = express();
@@ -12,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 app.get('/',(req,res)=>{
-    res.json({message:"hello"})
+    res.type('json').send(JSON.stringify(routes,null,4)+'\n')
 })
 
 app.use("/api", protect,router);
